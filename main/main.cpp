@@ -35,8 +35,8 @@ void setup() {
 #else
       .mode = (i2s_mode_t) (I2S_MODE_MASTER | I2S_MODE_TX),
 #endif
-      .sample_rate = 44100,
-      .bits_per_sample = (i2s_bits_per_sample_t)16,
+      .sample_rate = 48000,
+      .bits_per_sample = (i2s_bits_per_sample_t)32,
       .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
 #ifdef CONFIG_A2DP_SINK_OUTPUT_INTERNAL_DAC
       .communication_format = (i2s_comm_format_t) (I2S_COMM_FORMAT_STAND_MSB),
@@ -71,7 +71,7 @@ void setup() {
 
   a2dp_sink.set_bps_callback(bits_per_sample_cb);
 
-  a2dp_sink.start("InternalDAC", false);
+  a2dp_sink.start("MatMat", false);
 }
 
 extern "C" void app_main(void)
